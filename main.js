@@ -14,5 +14,6 @@ app.on('ready', function() {
     });
 
     //mainWindow.loadURL("http://www.google.com");
+    mainWindow.maximize();
     mainWindow.loadURL('file://' + __dirname+ '/idigbio_media_appliance/templates/index.html');
 });
