@@ -1,6 +1,7 @@
 {
   "name": "idigbio_media_applience",
-  "version": "1.0.0",
+  "version": "0.0.1",
+  "productName":"iDigBio Media Ingestion Tool",
   "description": "",
   "main": "main.js",
   "scripts": {
@@ -9,6 +10,7 @@
   "author": "Gaurav Yeole",
   "license": "ISC",
   "devDependencies": {
+    "electron-packager": "^8.7.1",
     "electron-prebuilt": "^1.4.13"
   },
   "dependencies": {

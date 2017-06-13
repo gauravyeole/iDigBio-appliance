@@ -15,3 +15,9 @@ version should be at least v1.4.13
 
 To run the application:
 $ electron .
+
+For packaging the electron application, install following packages: - 
+# for use in npm scripts:
+$ npm install electron-packager --save-dev
+# for install from cli
+$ npm install electron-packager -g 
