@@ -4,19 +4,19 @@
 - iDigBio Media Appliance is the client side application for the Ingestion of the CSV file in the iDigBio server. 
 - For more information about iDigBio visit - www.idigbio.org
 
-###To run this application your computer should have Node and npm installed. 
+### To run this application your computer should have Node and npm installed. 
 
-##Install electron using:
+## Install electron using:
 *$ npm install -g electron-prebuilt*
 
-#3check the version of electron by:
+## check the version of electron by:
 *$ electron --version*
 version should be at least v1.4.13
 
-##To run the application:
+## To run the application:
 *$ electron .*
 
-##For packaging the electron application, install following packages: - 
+## For packaging the electron application, install following packages: - 
 - for use in npm scripts:
 *$ npm install electron-packager --save-dev*
 - for install from cli
