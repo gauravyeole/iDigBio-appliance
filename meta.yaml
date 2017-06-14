@@ -1,0 +1,50 @@
+about:
+  home: http://github.com/idigbio/idigbio-media-appliance
+  license: MIT License
+  summary: iDigBio Media Appliance
+build:
+  entry_points:
+  - idigbio_media_appliance=idigbio_media_appliance.__main__:main
+package:
+  name: idigbio-media-appliance
+  version: 2.5.3
+requirements:
+  build:
+  - python
+  - setuptools
+  - flask
+  - flask-restful
+  - flask-sqlalchemy
+  - alembic
+  - easygui
+  - appdirs
+  - gevent
+  - idigbio
+  - unicodecsv
+  - idigbio
+  run:
+  - python
+  - flask
+  - flask-restful
+  - flask-sqlalchemy
+  - alembic
+  - easygui
+  - appdirs
+  - gevent
+  - idigbio
+  - unicodecsv
+  - idigbio
+source:
+  fn: idigbio-media-appliance-2.5.3.tar.gz
+  md5: fd3c109bfa6040025618bf5cd70e34dc
+  url: https://pypi.python.org/packages/51/a6/f0ced159244e1d5a38a4000c6e726053ed36a9bf8ee1a44028d5cf167f3d/idigbio-media-appliance-2.5.3.tar.gz
+test:
+  commands:
+  - idigbio_media_appliance --help
+  imports:
+  - idigbio_media_appliance
+  - idigbio_media_appliance.api
+  - idigbio_media_appliance.lib
+  - idigbio_media_appliance.models
+  - idigbio_media_appliance.tests
+  - idigbio_media_appliance.views

@@ -1,0 +1,9 @@
+channels:
+- http://repo.continuum.io/pkgs/free/
+- https://conda.anaconda.org/idigbio
+name: iDigBioMediaAppliance
+specs:
+- python 3.5*
+- conda
+- idigbio-media-appliance
+version: 2.5.3

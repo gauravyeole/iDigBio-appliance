@@ -7,7 +7,8 @@
 ### To run this application your computer should have Node and npm installed. 
 
 ## Install electron using:
-*$ npm install -g electron-prebuilt*
+*$ npm install electron --save-dev*
+*$ npm install -g electron*
 
 ## check the version of electron by:
 *$ electron --version*
@@ -19,5 +20,7 @@ version should be at least v1.4.13
 ## For packaging the electron application, install following packages: - 
 - for use in npm scripts:
 *$ npm install electron-packager --save-dev*
-- for install from cli
+- for install from cli:
 *$ npm install electron-packager -g* 
+
+Install grunt, grunt-electron, grunt-browserify
