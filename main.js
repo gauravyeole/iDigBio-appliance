@@ -13,5 +13,7 @@ app.on('ready', function() {
     });
 
     mainWindow.maximize();
-    mainWindow.loadURL('file://' + __dirname+ '/idigbio_media_appliance/templates/index.html');
+    //mainWindow.loadURL('file://' + __dirname+ '/idigbio_media_appliance/templates/index.html');
+    mainWindow.loadURL('http://localhost:5000/');
+
 });

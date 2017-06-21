@@ -15,7 +15,20 @@ module.exports = function(grunt){
 		},
 
 		electron: {
-			package: {
+
+			linuxpackage: {
+				options: {
+					name: 'iDigBio Media Ingestion Tool',
+					dir: '.',
+					out: './release-builds',
+					version: '1.4.13',
+					platform: 'linux',
+					arch: 'x64',
+					icon: './idigbio_media_appliance/static/img/icon.png'
+				}
+			},
+
+			winpackage: {
 				options: {
 					name: 'iDigBio Media Ingestion Tool',
 					dir: '.',
@@ -25,9 +38,22 @@ module.exports = function(grunt){
 					arch: 'x64',
 					icon: './idigbio_media_appliance/static/img/win.ico'
 				}
+			},
+
+			macpackage: {
+				options: {
+					name: 'iDigBio Media Ingestion Tool',
+					dir: '.',
+					out: './release-builds',
+					version: '1.4.13',
+					platform: 'darwin',
+					arch: 'x64',
+					icon: './idigbio_media_appliance/static/img/win.ico'
+				}
 			}
 		}
 
+		
 
 	});
 	grunt.loadNpmTasks('grunt-browserify');
