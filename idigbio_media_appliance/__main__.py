@@ -6,6 +6,18 @@ import webbrowser
 import subprocess
 import logging
 import multiprocessing
+import thread
+from multiprocessing import Process
+
+def run_server(app):
+    app.run()
+
+def launchChild(child, server):
+    print("Thread started...")
+    osdata, err = child.communicate()
+    if err is None:
+        server.terminate()
+
 
 
 def main():
@@ -23,14 +35,22 @@ def main():
     from .app import init_routes, create_or_update_db, app
     init_routes()
     create_or_update_db()
+
+    server = Process(target=run_server,args=(app,))
+
     #webbrowser.open("http://localhost:5000")
     child = subprocess.Popen(['electron','.'])
 
+    try:
+        thread.start_new_thread( launchChild, (child,server,) )
+    except:
+        print ("Error: unable to start thread")
+
     if dbg:
         # logging.getLogger('sqlalchemy.engine').setLevel(logging.INFO)
-        app.run(debug=True)
+        server.start() # debug option is not covered
     else:
-        app.run()
+        server.start()
     
 
 if __name__ == '__main__':
