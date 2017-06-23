@@ -6,9 +6,7 @@ import webbrowser
 import subprocess
 import logging
 import multiprocessing
-import _thread
-import threading
-from multiprocessing import Process, set_start_method, freeze_support
+
 
 
 
@@ -27,8 +25,10 @@ def main():
     from .app import init_routes, create_or_update_db, app
     init_routes()
     create_or_update_db()
-
-    child = subprocess.Popen(['release-builds/iDigBio Media Ingestion Tool-win32-x64/iDigBio Media Ingestion Tool.exe'])
+    # For Windows
+    #child = subprocess.Popen(['release-builds/iDigBio Media Ingestion Tool-win32-x64/iDigBio Media Ingestion Tool.exe']) 
+    # For Linux
+    child = subprocess.Popen(['./release-builds/iDigBio Media Ingestion Tool-linux-x64/iDigBio Media Ingestion Tool'])
        
     if dbg:
         # logging.getLogger('sqlalchemy.engine').setLevel(logging.INFO)

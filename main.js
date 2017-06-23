@@ -22,5 +22,6 @@ app.on('ready', function() {
     mainWindow.on('close', function(e){
         e.preventDefault();
         mainWindow.loadURL('http://localhost:5000/api/shutdown');
+        mainWindow.close()
     });
 });
