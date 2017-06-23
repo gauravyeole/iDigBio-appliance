@@ -6,7 +6,7 @@ import webbrowser
 import subprocess
 import logging
 import multiprocessing
-
+import platform
 
 
 
@@ -25,10 +25,17 @@ def main():
     from .app import init_routes, create_or_update_db, app
     init_routes()
     create_or_update_db()
-    # For Windows
-    #child = subprocess.Popen(['release-builds/iDigBio Media Ingestion Tool-win32-x64/iDigBio Media Ingestion Tool.exe']) 
-    # For Linux
-    child = subprocess.Popen(['./release-builds/iDigBio Media Ingestion Tool-linux-x64/iDigBio Media Ingestion Tool'])
+
+    curOS = platform.system()
+
+    print(curOS)
+
+    if (curOS == "Linux"):
+        child = subprocess.Popen(['./release-builds/iDigBio Media Ingestion Tool-linux-x64/iDigBio Media Ingestion Tool'])
+    elif (curOS == "Windows"):
+        child = subprocess.Popen(['release-builds/iDigBio Media Ingestion Tool-win32-x64/iDigBio Media Ingestion Tool.exe']) 
+
+    
        
     if dbg:
         # logging.getLogger('sqlalchemy.engine').setLevel(logging.INFO)
