@@ -6,17 +6,9 @@ import webbrowser
 import subprocess
 import logging
 import multiprocessing
-import thread
-from multiprocessing import Process
-
-def run_server(app):
-    app.run()
-
-def launchChild(child, server):
-    print("Thread started...")
-    osdata, err = child.communicate()
-    if err is None:
-        server.terminate()
+import _thread
+import threading
+from multiprocessing import Process, set_start_method, freeze_support
 
 
 
@@ -36,21 +28,15 @@ def main():
     init_routes()
     create_or_update_db()
 
-    server = Process(target=run_server,args=(app,))
-
-    #webbrowser.open("http://localhost:5000")
-    child = subprocess.Popen(['electron','.'])
-
-    try:
-        thread.start_new_thread( launchChild, (child,server,) )
-    except:
-        print ("Error: unable to start thread")
-
+    child = subprocess.Popen(['release-builds/iDigBio Media Ingestion Tool-win32-x64/iDigBio Media Ingestion Tool.exe'])
+       
     if dbg:
         # logging.getLogger('sqlalchemy.engine').setLevel(logging.INFO)
-        server.start() # debug option is not covered
+        app.run(debug=True) # debug option is not covered
     else:
-        server.start()
+        app.run()
+
+    child.kill()
     
 
 if __name__ == '__main__':
