@@ -7,7 +7,9 @@ var mainWindow = null;
 var closeWindow = null;
 
 app.on('window-all-closed', () => {
-  app.quit()
+  http.get('http://localhost:5000/api/shutdown', function(){
+    app.quit()
+  });
 })
 
 app.on('ready', function() {
@@ -20,10 +22,4 @@ app.on('ready', function() {
     mainWindow.maximize();
     //mainWindow.loadURL('file://' + __dirname+ '/idigbio_media_appliance/templates/index.html');
     mainWindow.loadURL('http://localhost:5000/');
-    
-    mainWindow.on('close', function(e){
-        //e.preventDefault();
-        http.get('http://localhost:5000/api/shutdown');
-        //mainWindow.close()
-    });
 });
