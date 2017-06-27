@@ -5,7 +5,9 @@ const {app, BrowserWindow} = require('electron');
 var mainWindow = null;
 var closeWindow = null;
 
-
+app.on('window-all-closed', () => {
+  app.quit()
+})
 
 app.on('ready', function() {
 
@@ -20,8 +22,8 @@ app.on('ready', function() {
     mainWindow.loadURL('http://localhost:5000/');
     
     mainWindow.on('close', function(e){
-        e.preventDefault();
+        //e.preventDefault();
         mainWindow.loadURL('http://localhost:5000/api/shutdown');
-        mainWindow.close()
+        //mainWindow.close()
     });
 });
